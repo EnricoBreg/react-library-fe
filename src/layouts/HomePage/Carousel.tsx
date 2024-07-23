@@ -15,7 +15,13 @@ export const Carousel = () => {
         {/* Desktop */}
         <div className="carousel-inner">
           <div className="carousel-item active">
-            <div className="row d-flex justify-content-center align-items-center"></div>
+            <div className="row d-flex justify-content-center align-items-center">
+              <div className="row d-flex justify-content-center align-items-center">
+                <ReturnBook />
+                <ReturnBook />
+                <ReturnBook />
+              </div>
+            </div>
           </div>
           <div className="carousel-item">
             <div className="row d-flex justify-content-center align-items-center">
