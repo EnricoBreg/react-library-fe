@@ -1,10 +1,96 @@
-# Getting Started with Create React App
+# REACT LIBRARY FRONT-END PRJ
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<div>
+  <img
+    src="https://flagcdn.com/16x12/it.png"
+    srcset="https://flagcdn.com/32x24/it.png 2x,
+      https://flagcdn.com/48x36/it.png 3x"
+    width="16"
+    height="12"
+    alt="Italy">
+</div>
 
-## Available Scripts
+### Introduzione
 
-In the project directory, you can run:
+Questo progetto è stato avviato con [Create React App](https://github.com/facebook/create-react-app). L'intero progetto richiede di essere utilizzato con il progetto backend speculare React-Library-BE (puoi trovare il link qui sotto)
+
+Repo Proj Frontend qui: [React-Library-BE](https://github.com/EnricoBreg/react-library-be)
+
+#### <b>NOTA: Il progetto funzionerà solo se il backend è in esecuzione!</b>
+
+## Installazione
+
+Una volta scaricato il codice sorgente o clonato questo repository, puoi eseguire:
+
+### `npm start`
+
+Avvia l'applicazione in modalità di sviluppo.\
+Apri [http://localhost:3000](http://localhost:3000) per visualizzarla nel browser.
+
+La pagina si ricaricherà se apporti modifiche.\
+Vedrai anche eventuali errori di lint nella console.
+
+### `npm test`
+
+Avvia il test runner in modalità interattiva watch.\
+Consulta la sezione sui [test in esecuzione](https://facebook.github.io/create-react-app/docs/running-tests) per ulteriori informazioni.
+
+### `npm run build`
+
+Compila l'applicazione per la produzione nella cartella `build`.\
+Impacchetta correttamente React in modalità produzione e ottimizza la build per le migliori prestazioni.
+
+La build è minificata e i nomi dei file includono gli hash.\
+La tua app è pronta per essere distribuita!
+
+Consulta la sezione sulla [distribuzione](https://facebook.github.io/create-react-app/docs/deployment) per ulteriori informazioni.
+
+### `npm run eject`
+
+**Nota: questa è un'operazione irreversibile. Una volta che `eject`, non puoi tornare indietro!**
+
+Se non sei soddisfatto degli strumenti di build e delle scelte di configurazione, puoi `eject` in qualsiasi momento. Questo comando rimuoverà la singola dipendenza di build dal tuo progetto.
+
+Invece, copierà tutti i file di configurazione e le dipendenze transitive (webpack, Babel, ESLint, ecc.) direttamente nel tuo progetto così avrai il pieno controllo su di essi. Tutti i comandi, eccetto `eject`, funzioneranno ancora, ma punteranno agli script copiati così potrai modificarli. A questo punto sarai da solo.
+
+Non è necessario utilizzare mai `eject`. Il set di funzionalità curato è adatto per piccole e medie distribuzioni e non dovresti sentirti obbligato a utilizzare questa funzionalità. Tuttavia, comprendiamo che questo strumento non sarebbe utile se non potessi personalizzarlo quando sei pronto per farlo.
+
+## Per saperne di più
+
+Puoi saperne di più nella [documentazione di Create React App](https://facebook.github.io/create-react-app/docs/getting-started).
+
+Per imparare React, consulta la [documentazione di React](https://reactjs.org/).
+
+---
+
+<div>
+  <img
+  src="https://flagcdn.com/16x12/gb.png"
+  srcset="https://flagcdn.com/32x24/gb.png 2x,
+    https://flagcdn.com/48x36/gb.png 3x"
+  width="16"
+  height="12"
+  alt="United Kingdom">
+<img
+  src="https://flagcdn.com/16x12/us.png"
+  srcset="https://flagcdn.com/32x24/us.png 2x,
+    https://flagcdn.com/48x36/us.png 3x"
+  width="16"
+  height="12"
+  alt="United States">
+</div>
+
+### Introduction
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). The entire project requires to be use with specular backend project React-Library-BE (you can find the link below)
+
+Repo Proj Frontend qui: [React-Library-BE](https://github.com/EnricoBreg/react-library-be)
+
+#### <b>NOTE: The project will work only if the backend is running!</b>
+
+## Installation
+
+Once you have downloaded the source code or cloned this repository, your can run:
 
 ### `npm start`
 
