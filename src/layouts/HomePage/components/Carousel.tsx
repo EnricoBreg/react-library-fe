@@ -1,7 +1,7 @@
-import { ReturnBook } from "./ReturnBook";
 import { useEffect, useState } from "react";
 import BookModel from "../../../models/BookModel";
 import { SpinnerLoading } from "../../Commons/SpinnerLoading";
+import { ReturnBook } from "./ReturnBook";
 
 /**
  * shape della risposta che si ottiene dal backend al fetching dei libri
@@ -9,6 +9,12 @@ import { SpinnerLoading } from "../../Commons/SpinnerLoading";
 export interface APIResponse {
   _embedded: {
     books: BookModel[];
+  };
+  page: {
+    size: number;
+    totalElements: number;
+    totalPages: number;
+    number: 0;
   };
 }
 
