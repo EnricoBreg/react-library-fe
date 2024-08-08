@@ -6,7 +6,7 @@ import { SpinnerLoading } from "../../Commons/SpinnerLoading";
 /**
  * shape della risposta che si ottiene dal backend al fetching dei libri
  */
-interface APIResponse {
+export interface APIResponse {
   _embedded: {
     books: BookModel[];
   };
