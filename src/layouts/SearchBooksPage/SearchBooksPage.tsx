@@ -91,7 +91,7 @@ export const SearchBooksPage = () => {
       value.toLowerCase() === "data" ||
       value.toLowerCase() === "devops"
     ) {
-      setCategorySelection(value.toUpperCase());
+      setCategorySelection(value);
       setSearchUrl(
         `/search/findByCategory?category=${value}&page=<pageNumber>&size=${booksPerPage}`
       );
@@ -153,22 +153,22 @@ export const SearchBooksPage = () => {
                       All
                     </a>
                   </li>
-                  <li onClick={() => categoryField("fe")}>
+                  <li onClick={() => categoryField("FE")}>
                     <a className="dropdown-item" href="#">
                       Front end
                     </a>
                   </li>
-                  <li onClick={() => categoryField("be")}>
+                  <li onClick={() => categoryField("BE")}>
                     <a className="dropdown-item" href="#">
                       Back end
                     </a>
                   </li>
-                  <li onClick={() => categoryField("data")}>
+                  <li onClick={() => categoryField("DATA")}>
                     <a className="dropdown-item" href="#">
                       Data
                     </a>
                   </li>
-                  <li onClick={() => categoryField("devops")}>
+                  <li onClick={() => categoryField("DEVOPS")}>
                     <a className="dropdown-item" href="#">
                       DevOps
                     </a>
