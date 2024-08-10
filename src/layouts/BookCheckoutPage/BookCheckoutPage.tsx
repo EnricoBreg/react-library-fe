@@ -18,7 +18,6 @@ export const BookCheckoutPage = () => {
       if (!response.ok) throw new Error("Something went wrong :(");
 
       const responseJSON: BookModel = await response.json();
-      console.log(responseJSON);
 
       setBook(responseJSON);
       setIsLoading(false);
