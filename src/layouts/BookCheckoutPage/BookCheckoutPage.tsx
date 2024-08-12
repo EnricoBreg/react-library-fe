@@ -1,13 +1,20 @@
 import { useEffect, useState } from "react";
 import BookModel from "../../models/BookModel";
+import { ReviewAPIResponse, ReviewModel } from "../../models/ReviewModel";
 import { SpinnerLoading } from "../Commons/SpinnerLoading";
 import { StarsReview } from "../Commons/StarsReview";
 import { CheckoutAndReviewBox } from "./CheckoutAndReviewBox";
+import { LatestReviews } from "./LatestReviews";
 
 export const BookCheckoutPage = () => {
   const [book, setBook] = useState<BookModel>();
   const [isLoading, setIsLoading] = useState(true);
   const [httpError, setHttpError] = useState(null);
+
+  // Review State
+  const [reviews, setReviews] = useState<ReviewModel[]>([]);
+  const [totalStars, setTotalStars] = useState(0);
+  const [isLoadingReview, setIsLoadingReview] = useState(true);
 
   const bookId = window.location.pathname.split("/")[2];
 
@@ -31,7 +38,42 @@ export const BookCheckoutPage = () => {
     });
   }, []);
 
-  if (isLoading) return <SpinnerLoading />;
+  useEffect(() => {
+    const fetchBookReview = async () => {
+      const reviewUrl = `http://localhost:8080/api/reviews/search/findByBookId?bookId=${bookId}`;
+
+      const responseReviews = await fetch(reviewUrl);
+
+      if (!responseReviews.ok) throw new Error("Something went wrong!");
+
+      const responseJsonReviews: ReviewAPIResponse =
+        await responseReviews.json();
+
+      const loadedReviews = responseJsonReviews._embedded.reviews;
+
+      let weightedStarReviews = loadedReviews.reduce(
+        (acc, currBook) => acc + currBook.rating,
+        0
+      );
+
+      if (loadedReviews) {
+        const round = (
+          Math.round((weightedStarReviews / loadedReviews.length) * 2.0) / 2.0
+        ).toFixed(2);
+        setTotalStars(Number(round));
+      }
+
+      setReviews(loadedReviews);
+      setIsLoadingReview(false);
+    };
+
+    fetchBookReview().catch((error: any) => {
+      setIsLoadingReview(false);
+      setHttpError(error.message);
+    });
+  }, []);
+
+  if (isLoading || isLoadingReview) return <SpinnerLoading />;
 
   if (httpError) {
     return (
@@ -64,14 +106,16 @@ export const BookCheckoutPage = () => {
               <h2>{book?.title}</h2>
               <h5 className="text-primary">{book?.author}</h5>
               <p className="lead">{book?.description}</p>
-              <StarsReview rating={4.5} size={32} />
+              <StarsReview rating={totalStars} size={32} />
             </div>
           </div>
           {/* Checkout - Review Box */}
           <CheckoutAndReviewBox mobile={false} book={book} />
         </div>
         <hr />
+        <LatestReviews reviews={reviews} bookId={book?.id} mobile={false} />
       </div>
+      {/* Mobile */}
       <div className="container d-lg-none mt-5">
         <div className="d-flex justify-content-center align-items-center">
           {book?.img ? (
@@ -91,12 +135,13 @@ export const BookCheckoutPage = () => {
             <h2>{book?.title}</h2>
             <h5 className="text-primary">{book?.author}</h5>
             <p className="lead">{book?.description}</p>
-            <StarsReview rating={4.5} size={32} />
+            <StarsReview rating={totalStars} size={32} />
           </div>
         </div>
         {/* Checkout - Review Box */}
         <CheckoutAndReviewBox mobile={true} book={book} />
         <hr />
+        <LatestReviews reviews={reviews} bookId={book?.id} mobile={true} />
       </div>
     </div>
   );
